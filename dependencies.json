@@ -1,0 +1,7 @@
+{
+  "error": {
+    "code": "EINVALIDTAGNAME",
+    "summary": "Invalid tag name \"#\" of package \"#\": Tags may not have any characters that encodeURIComponent encodes.",
+    "detail": ""
+  }
+}
