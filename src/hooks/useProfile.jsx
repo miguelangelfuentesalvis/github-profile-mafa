@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 
-export default function useProfile(username = 'midudev') {
+export default function useProfile(username = 'github') { // Cambiado a 'github' como valor por defecto
   const [user, setUser] = useState(null);
   const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Iniciar en true para el loading inicial
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!username) return;
-
       setLoading(true);
       setError(null);
 
@@ -38,7 +36,7 @@ export default function useProfile(username = 'midudev') {
       }
     };
 
-    const timer = setTimeout(fetchData, 500);
+    const timer = setTimeout(fetchData, 300);
     return () => clearTimeout(timer);
   }, [username]);
 

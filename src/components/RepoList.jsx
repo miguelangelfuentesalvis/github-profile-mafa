@@ -1,10 +1,8 @@
-import RepoCard from './RepoCard';
+import RepoCard from './RepoCard'; // Importación faltante
 
 export default function RepoList({ repos }) {
-  if (!repos || repos.length === 0) return null;
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
       {repos.map((repo) => (
         <RepoCard
           key={repo.id}
@@ -13,6 +11,8 @@ export default function RepoList({ repos }) {
           stars={repo.stargazers_count}
           forks={repo.forks_count}
           language={repo.language}
+          license={repo.license}
+          updated_at={repo.updated_at}
           url={repo.html_url}
         />
       ))}

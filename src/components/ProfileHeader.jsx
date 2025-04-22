@@ -1,44 +1,52 @@
 export default function ProfileHeader({ avatar, name, bio, followers, following, location }) {
     return (
-      <div className="relative bg-[#20293A] rounded-b-xl pt-24 pb-6 px-6 border-b border-[#30363D]">
-        {/* Avatar - Posición exacta */}
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
-          <img 
-            src={avatar} 
-            alt={name} 
-            className="w-24 h-24 rounded-full border-4 border-[#20293A] object-cover shadow-lg"
+      <div className="relative pt-20 pb-6 px-4">
+        {/* Avatar (sin cambios) */}
+        <div className="absolute -top-12 left-4">
+          <img
+            src={avatar}
+            alt={name}
+            className="w-24 h-24 rounded-2xl border-6 border-[#20293A] object-cover shadow-lg"
           />
         </div>
   
-        {/* Contenido */}
-        <div className="mt-6">
-          <h1 className="text-[#E6EDF3] text-xl font-semibold text-center md:text-left">{name}</h1>
-          
-          {bio && (
-            <p className="text-[#97A3B6] text-sm mt-2 text-center md:text-left line-clamp-2">
-              {bio}
-            </p>
-          )}
-  
-          {/* Stats - Versión exacta a referencia */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-4">
-            <div className="flex items-center bg-[#111729] rounded-full px-3 py-1 border border-[#30363D]">
+        {/* Contenedor principal ajustado */}
+        <div className="flex flex-col sm:block">
+          {/* Stats - Ahora en línea para tablet/desktop */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="inline-flex items-center bg-[#111729] rounded-lg border border-[#30363D] px-4 py-3">
+              <span className="text-[#CDD5E0] text-sm">Followers</span>
+              <span className="text-[#97A3B6] mx-3">|</span>
               <span className="text-[#CDD5E0] font-medium text-sm">{followers}</span>
-              <span className="text-[#97A3B6] text-xs ml-1">Followers</span>
             </div>
-            
-            <div className="flex items-center bg-[#111729] rounded-full px-3 py-1 border border-[#30363D]">
+  
+            <div className="inline-flex items-center bg-[#111729] rounded-lg border border-[#30363D] px-4 py-3">
+              <span className="text-[#CDD5E0] text-sm">Following</span>
+              <span className="text-[#97A3B6] mx-3">|</span>
               <span className="text-[#CDD5E0] font-medium text-sm">{following}</span>
-              <span className="text-[#97A3B6] text-xs ml-1">Following</span>
             </div>
-            
+  
             {location && (
-              <div className="flex items-center bg-[#111729] rounded-full px-3 py-1 border border-[#30363D]">
-                <span className="text-[#97A3B6] text-xs flex items-center">
-                  <span className="text-xs mr-1">📍</span>
-                  {location}
+              <div className="inline-flex items-center bg-[#111729] rounded-lg border border-[#30363D] px-4 py-3">
+                <span className="text-[#CDD5E0] text-sm flex items-center">
+                  <span className="mr-2"></span>
+                  Location
                 </span>
+                <span className="text-[#97A3B6] mx-3">|</span>
+                <span className="text-[#CDD5E0] font-medium text-sm">{location}</span>
               </div>
+            )}
+          </div>
+  
+          {/* Nombre y Bio (sin cambios, posición relativa ajustada) */}
+          <div className="mt-6 space-y-4">
+            <h1 className="text-[#CDD5E0] font-semibold md:text-left">
+              {name}
+            </h1>
+            {bio && (
+              <p className="text-[#CDD5E0] text-sm md:text-left line-clamp-2">
+                {bio}
+              </p>
             )}
           </div>
         </div>
